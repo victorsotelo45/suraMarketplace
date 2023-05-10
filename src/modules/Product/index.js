@@ -10,8 +10,97 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`)
-      const data = await response.json()
-      console.log(data)
+      // const data = await response.json()
+      const products = [
+        {
+          id: 1,
+          title: "Tigre peluche",
+          price: 30000,
+          description:
+            "Muñeco en tela, hecho a mano.",
+          category: "Accesorios",
+          image: "/img/tigre peluche.jpg",
+          rating: { rate: 3.9, count: 120 },
+        },
+        {
+          id: 2,
+          title: "Termo Operativo",
+          price: 3622,
+          description:
+            "Termo solo para uso de bebidas frias.",
+          category: "Accesorios",
+          image:
+            "/img/termo.jpeg",
+          rating: { rate: 4.1, count: 259 },
+        },
+        {
+          id: 3,
+          title: "Cojín Tigre Bot",
+          price: 55.99,
+          description:
+            "Cojín Tigre Bot - Material peluche.",
+          category: "Accesorios",
+          image: "/img/cojin bot.jpg",
+          rating: { rate: 4.7, count: 500 },
+        },
+        {
+          id: 4,
+          title: "Tula Deportiva",
+          price: 9750,
+          description:
+            "Tula diseño deportivo con ajuste...",
+          category: "Accesorios",
+          image: "/img/tula.jpg",
+          rating: { rate: 2.1, count: 430 },
+        },
+        {
+          id: 5,
+          title:
+            "Computador. Producto sin garantía software y hardware. Una compra por año...",
+          price: 100000,
+          description:
+            "Computador. Producto sin garantía software y hardware. Una compra por año...",
+          category: "Electrónica",
+          image:
+            "/img/computador fijo.jpg",
+          rating: { rate: 4.6, count: 400 },
+        },
+        {
+          id: 6,
+          title: "All in one. Producto sin garantía software y hardware. Una compra por año...",
+          price: 100000,
+          description:
+            "All in one. Producto sin garantía software y hardware. Una compra por año...",
+          category: "Electrónica",
+          image:
+            "/img/All in one.jpg",
+          rating: { rate: 3.9, count: 70 },
+        },
+        {
+          id: 7,
+          title: "Portàtil.Producto sin garantía software y hardware. Una compra por año. Transporte...",
+          price: 150000,
+          description:
+            "Portàtil.Producto sin garantía software y hardware. Una compra por año. Transporte...",
+          category: "Electrónica",
+          image:
+            "/img/Portatil.jpg",
+          rating: { rate: 3, count: 400 },
+        },
+        {
+          id: 8,
+          title: "Cuaderno SURA",
+          price: 9684,
+          description:
+            "Cuaderno Sura - Papel Earth...",
+          category: "Accesorios",
+          image:
+            "/img/cuaderno surajpg.jpg",
+          rating: { rate: 1.9, count: 100 },
+        },
+      ]
+      const data = products.find(element=>element.id == id)
+      console.log('productos',data)
       setProduct(data)
     }
     fetchProduct()
@@ -116,8 +205,8 @@ const Product = () => {
               <div className="flex justify-between items-center">
                 <span className="title-font font-medium text-2xl text-gray-900">${product?.price}</span>
                 <div className=' flex'>
-                  <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mr-2" onClick={() => handleCart(product, true)}>Buy it now</button>
-                  <button className="flex ml-auto border border-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded" onClick={() => handleCart(product)}>Add to cart</button>
+                  <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded mr-2" onClick={() => handleCart(product, true)}>Comprar ahora</button>
+                  <button className="flex ml-auto border border-blue-500 py-2 px-6 focus:outline-none hover:bg-blue-600 hover:text-white rounded" onClick={() => handleCart(product)}>Adicionar al carrito</button>
                 </div>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
